@@ -16,7 +16,7 @@ jobs:
         with:
          node-version: '14.x'
       - name: Testing my script
-        run: node ../../src/test.js
+        run: node test.js
       - name: Run Super-Linter
         uses: github/super-linter@v3.17.0 
         env:
