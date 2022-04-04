@@ -16,4 +16,4 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: I have a script to Run here
-        uses: node ../src/test.js
+        uses: node ../../src/test.js
