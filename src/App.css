@@ -10,11 +10,15 @@
 }
 
 .displayUsers div {
-  width: 400px;
-  height: 200px;
+  width: 500px;
+  height: 250px;
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+}
+.inputs{
+  padding: auto;
+  margin: auto;
 }

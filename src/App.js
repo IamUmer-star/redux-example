@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 import { addUser, deleteUser, updateUser } from "./features/Users";
 import { Button } from "react-bootstrap";
-import "react-bootstrap";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function App() {
   const [newuser , setNewName ] = useState("");
   return (
     <div className="App">
-      <div> </div>
+      <div> 
       <div className="addUser">
         <input
           type={"text"}
@@ -21,14 +21,15 @@ function App() {
           onChange={(e) => {
             setName(e.target.value);
           }}
-        ></input>
+          ></input>
         <input
+        className="inputss"
           type={"text"}
           placeholder={"userName"}
           onChange={(e) => {
             setUserName(e.target.value);
           }}
-        ></input>
+          ></input>
         <Button
           variant="primary"
           onClick={() => {
@@ -38,17 +39,19 @@ function App() {
                 name,
                 username,
               })
-            );
-            console.log(name, username);
-          }}
-        >
+              );
+              console.log(name, username);
+            }}
+            >
           Add User
         </Button>
+          </div>
       </div>
       <div className="displayUsers">
         {userList.map((user, index) => {
           return (
             <div>
+
               <label key={index - 1}>{user.id}</label>
               <h1 key={index}>{user.name}</h1>
               <h1 key={index + 1}>{user.username}</h1>
@@ -59,22 +62,24 @@ function App() {
                   setNewName(e.target.value);
                 }}
               ></input>
-              <button
+              <Button
+              disabled={  newuser.length >8  ? false : true}
+              
                 onClick={() => {
                   console.log("userUpdated");
                   dispatch(updateUser({ id: user.id , username : newuser }));
                 }}
               >
                 Update userName
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={() => {
                   dispatch(deleteUser({ id: user.id }));
                   console.log(dispatch(deleteUser({ id: user.id })));
                 }}
               >
                 Delete User
-              </button>
+              </Button>
             </div>
           );
         })}
